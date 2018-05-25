@@ -29,12 +29,13 @@ try:
 except pyglet.canvas.xlib.NoSuchDisplayException as e:
     print("Import error! You will not be able to render --> %s" % e)
 except ImportError as e:
-    reraise(
-        prefix="Error occured while running `from pyglet.gl import *`",
-        suffix="Make sure you have OpenGL installed. On Ubuntu, you can run "
-        "'apt-get install python-opengl'. If you're running on a server, you "
-        "may need a virtual frame buffer; something like this should work: "
-        "'xvfb-run -s \"-screen 0 1400x900x24\" python <your_script.py>'")
+    print("Import error! You will not be able to render --> %s" % e)
+    #reraise(
+    #    prefix="Error occured while running `from pyglet.gl import *`",
+    #    suffix="Make sure you have OpenGL installed. On Ubuntu, you can run "
+    #    "'apt-get install python-opengl'. If you're running on a server, you "
+    #    "may need a virtual frame buffer; something like this should work: "
+    #    "'xvfb-run -s \"-screen 0 1400x900x24\" python <your_script.py>'")
 
 from . import constants
 from . import utility
